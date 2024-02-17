@@ -53,9 +53,51 @@ else:
 #Questão 4
 #Faça um programa que leia um número inteiro pelo terminal e imprima qual dia da semana corresponde. Considere que o “domingo” é o dia 1, a “segunda-feira” é o dia 2, e assim por diante.
 
-print('Digite um valor para saber qual dia da semana corresponde:')
-
-
+'''
+#def é uma palavra-chave para definir uma função (bloco de código reutilizável)
+def dia_da_semana(numero):
+    dias_semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"]
+    if numero >= 1 and numero <= 7:
+    #[numero - 1] é utilizado para converter o número do dia do mês em um índice válido para acessar a lista 'dias_semana'
+        return dias_semana[numero - 1]
+    else:
+        return "Número inválido"
+numero = int(input('Digite um valor de 1 a 7 para saber qual dia da semana corresponde:'))
+print("O dia correspondente é:", dia_da_semana(numero))
+'''
+#Ou
+'''
+numero = int(input('Digite um número de 1 a 30: '))
+dias_semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"]
+if numero >= 1 and numero <= 30:
+    # Usamos o operador % para garantir que o número fique no intervalo de 0 a 6
+    indice_dia = (numero - 1) % 7
+    print ('O dia correspondente é:', dias_semana[indice_dia])
+else:
+    print('Número inválido')   
+'''     
 
 #Questão 5
 #Crie um programa simples que simula uma calculadora básica. O usuário deve inserir dois números e uma operação (adição, subtração, multiplicação ou divisão). O programa deve realizar a operação escolhida e exibir o resultado.
+
+def calculadora(num1, num2, operacao):
+    if operacao == "+":
+        return num1 + num2
+    elif operacao == "-":
+        return num1 - num2
+    elif operacao == "*":
+        return num1 * num2
+    elif operacao == "/":
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Erro! Divisão por zero. "
+    else:
+        return "Operação inválida"
+    
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+operacao = input("Digite a operação desejada (+, - , *, /): ")
+
+resultado = calculadora(num1, num2, operacao)
+print("O resultado da operação é:", resultado)
