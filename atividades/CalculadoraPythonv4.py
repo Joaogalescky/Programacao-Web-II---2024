@@ -1,3 +1,23 @@
+'''
+QUESTÃO 1 
+Neste trabalho você deve implementar uma calculadora de pilha. Ou seja, para cada elemento da operação aritmética deve-se empilhar. Cada operação aritmética ( +, - , * , / ) é realizada com os dois elementos do topo da pilha, os quais são desempilhados. Além disso, o resultado da operação aritmética é empilhado.
+
+O programa deve conter as seguintes ações:
+“+”: efetua a operação de adição com os dois elementos do topo da pilha e empilha o resultado.
+“-”: efetua a operação de subtração com os dois elementos do topo da pilha e empilha o resultado.
+“*”: efetua a operação de multiplicação com os dois elementos do topo da pilha e empilha o resultado.
+“/”: efetua a operação de divisão com os dois elementos do topo da pilha e empilha o resultado.
+
+
+Além das operações acima o seu programa deverá realizar o tratamento de:
+
+Conversão de texto para número;
+
+Divisão por zero, e;
+
+Pilha vazia.
+'''
+
 from word2number import w2n
 
 #classe
