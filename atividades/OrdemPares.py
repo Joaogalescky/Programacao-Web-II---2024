@@ -2,7 +2,9 @@
 
 '''
 def ordenar_pares_impares(lista):
+    #compreensao de lista
     pares = sorted([x for x in lista if x % 2 == 0])
+    #sorted = ordenando os elementos filtrados em ordem crescente
     impares = sorted([x for x in lista if x % 2 != 0])
     return pares + impares
 
@@ -17,11 +19,15 @@ print("Lista ordenada com números pares no início e ímpares no final:", resul
 def ordenar_pares_impares(lista):
     i = 0
     j = len(lista) - 1
-    
+
     while i < j:
+        #se for par ou impar
         if lista[i] % 2 != 0 and lista[j] % 2 == 0:
+            #se lista[i] for impar, trocar valor da posicao com a lista[j]
             lista[i], lista[j] = lista[j], lista[i]
+            #'i' começa apontando para o primeiro elemento da lista
             i += 1
+            #'j' começa apontando para o ultimo elemento da lista
             j -= 1
         elif lista[i] % 2 == 0:
             i += 1
