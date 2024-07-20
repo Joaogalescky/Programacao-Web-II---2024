@@ -1,6 +1,6 @@
 # Aluno: João Vitor Campõe Galescky
 
-# Questão 2
+# Questão 2 - corrigida
 '''
 Dada uma matriz de inteiros N×M, escreva um programa que verifique quais números são primos e retorne a uma nova matriz onde os números primos são substituídos por 1 e os não primos por 0.
 Exemplo de Entrada:
@@ -20,13 +20,13 @@ import math
 def eh_primo(n):
     if n <= 1:
     	return False
-    if n == 2:
+    elif n == 2:
     	return True
-    if n % 2 == 0:
+    elif n % 2 == 0:
     	return False
     for i in range(3, int(math.sqrt(n)) + 1,2):
-    	if n % i == 0:
-   	    return False
+        if n % i == 0:
+        return False
     return True
 
 matriz = [[2, 4, 6], [7, 8, 9]]

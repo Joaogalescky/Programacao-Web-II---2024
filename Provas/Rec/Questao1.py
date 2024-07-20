@@ -1,5 +1,5 @@
 # Aluno: João Vitor Campõe Galescky
-# Questão 1
+# Questão 1 - corrigida
 '''
 Escreva um programa que, dado um número inteiro N, desenhe um triângulo de asteriscos de altura N.
 Exemplo de Entrada:
