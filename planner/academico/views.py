@@ -4,8 +4,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 
 #importando modelos e serializers
-from .models import Professor
-from .serializers import ProfessorSerializer
+from .models import Professor, Curso, Disciplina
+from .serializers import ProfessorSerializer, CursoSerializer, DisciplinaSerializer, DisciplinaCreateUpdateSerializer
 
 # Create your views here.
 class ProfessorView(APIView):
@@ -65,3 +65,54 @@ class ProfessorReadUpdateDeleteView(APIView):
         professor = get_object_or_404(Professor, pk=id)
         professor.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+class CursoListCreateAPIView(APIView):
+    
+    # GET
+    def get(self, request):
+        cursos = Curso.objects.all()
+        serializer = CursoSerializer(cursos, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    # POST
+    def post(self, request):
+        serializer = CursoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class DisciplinaRetrieveUpdateDestroyAPIView(APIView):
+    
+    # GET
+    def get(self, request, id):
+        try:
+            disciplina = Disciplina.objects.get(pk=id)
+        except Disciplina.DoesNotExist:
+            return Response({'detail': 'Disciplina não encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = DisciplinaSerializer(disciplina)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    # PUT
+    def put(self, request, id):
+        try:
+            disciplina = Disciplina.objects.get(pk=id)
+        except Disciplina.DoesNotExist:
+            return Response({'detail': 'Disciplina não encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = DisciplinaCreateUpdateSerializer(disciplina, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # DELETE
+    def delete(self, request, id):
+        try:
+            disciplina = Disciplina.objects.get(pk=id)
+        except Disciplina.DoesNotExist:
+            return Response({'detail': 'Disciplina não encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+        
+        disciplina.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT) 
