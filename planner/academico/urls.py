@@ -6,5 +6,5 @@ urlpatterns = [
     path('professor/<int:id>/', ProfessorReadUpdateDeleteView.as_view(), name='professor-detail'),
     path('curso/', CursoListCreateAPIView.as_view()),
     path('disciplina/', DisciplinaListCreateAPIView.as_view()),
-    path('disciplina/<int:pk>/', DisciplinaRetrieveUpdateDestroyAPIView.as_view()),
+    path('disciplina/<int:id>/', DisciplinaRetrieveUpdateDestroyAPIView.as_view()),
 ]
