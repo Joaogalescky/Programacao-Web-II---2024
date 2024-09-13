@@ -1,0 +1,9 @@
+python3 -m pip install django
+pyton3 -m pip install django djangorestframework
+django-admin startproject <nomedoprojeto>
+python3 manage.py startapp <nomedoapp>
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+python3 manage.py shell
+
