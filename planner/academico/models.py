@@ -21,3 +21,7 @@ class Disciplina(models.Model):
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE, null=True)
     nome = models.CharField(max_length=200)
     codigo = models.CharField(max_length=6, null=True)
+    
+class ConteudoProgramatico(models.Model):
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE, related_name='conteudos_programaticos')
+    descricao = models.TextField(null=True)

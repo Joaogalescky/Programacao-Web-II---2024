@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 #importando modelos e serializers
 from .models import Professor, Curso, Disciplina
-from .serializers import ProfessorSerializer, CursoSerializer, DisciplinaSerializer, DisciplinaCreateUpdateSerializer
+from .serializers import ProfessorSerializer, CursoSerializer, DisciplinaSerializer, DisciplinaCreateUpdateSerializer, DisciplinaConteudoCreateUpdateSerializer
 
 # Create your views here.
 class ProfessorView(APIView):
@@ -128,4 +128,15 @@ class DisciplinaRetrieveUpdateDestroyAPIView(APIView):
             return Response({'detail': 'Disciplina não encontrada.'}, status=status.HTTP_404_NOT_FOUND)
         
         disciplina.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT) 
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class DisciplinaConteudoListCreateAPIView(APIView):
+    # POST
+    def post(self, request, *args, **kwargs): 
+        # args - args é um nome de convenção, o * é para uma variável
+        # kwargs - kwargs é um nome de convenção, o ** é para mais de uma variável
+        serializer = DisciplinaConteudoCreateUpdateSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
