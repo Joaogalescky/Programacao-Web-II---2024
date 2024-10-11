@@ -1,73 +1,98 @@
-from rest_framework import viewsets, status
+# Importações
+from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.decorators import action
-from .models import Registro, Usuario, Medicamento, Prescricao
-from .serializers import RegistroSerializer, UsuarioSerializer, MedicamentoSerializer, PrescricaoSerializer
+from rest_framework import status
 from django.shortcuts import get_object_or_404
+from .models import Usuario, Medicamento, Prescricao
+from .serializers import UsuarioSerializer, MedicamentoSerializer, PrescricaoSerializer
 
-# CRUD Usuário
-class UsuarioViewSet(viewsets.ModelViewSet):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+# CRUD - Usuário
+class UsuarioView(APIView):
+    def post(self, request):
+        serializer = UsuarioSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.erros, status=status.HTTP_404_NOT_FOUND)
     
-# CRUD Medicamento
-class MedicamentoViewSet(viewsets.ModelViewSet):
-    queryset = Medicamento.objects.all()
-    serializer_class = MedicamentoSerializer
+    def get(self, request):
+        usuarios = Usuario.objects.all()
+        serializer = UsuarioSerializer(usuarios, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class UsuarioReadUpdateDeleteView(APIView):
+    def get(self, request, id):
+        usuario = get_object_or_404(Usuario, pk=id)
+        serializer = UsuarioSerializer(usuario)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def put(self, request, id):
+        usuario = get_object_or_404(Usuario, pk=id)
+        serializer = UsuarioSerializer(usuario, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, id):
+        usuario = get_object_or_404(Usuario, pk=id)
+        usuario.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-# Viewset Prescrições
-class PrescricaoViewSet(viewsets.ModelViewSet):
-    queryset = Prescricao.objects.all()
-    serializer_class = PrescricaoSerializer
+# CRUD - Medicamento
+class MedicamentoView(APIView):
+    def post(self, request):
+        serializer = MedicamentoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False, methods=['post'])
-    def cadastrar_prescricao_com_medicamento(self, request):
-        """
-        Este endpoint permite cadastrar uma prescrição e um medicamento ao mesmo tempo.
-        """
-        # Dados de paciente e medicamento
-        paciente_id = request.data.get('paciente', {}).get('id')
-        medicamento_data = request.data.get('medicamento')
-        prescricao_data = request.data.copy()
-
-        # Validação do paciente
-        if not paciente_id:
-            return Response({"error": "ID do paciente é obrigatório."}, status=status.HTTP_400_BAD_REQUEST)
-
-        paciente = get_object_or_404(Usuario, id=paciente_id)
-        
-        # Verifica se o medicamento já existe, senão cria
-        medicamento, created = Medicamento.objects.get_or_create(
-            nome=medicamento_data['nome'],
-            defaults={
-                'dosagem': medicamento_data['dosagem'],
-                'forma': medicamento_data['forma']
-            }
-        )
-
-        # Adiciona IDs de paciente e medicamento aos dados da prescrição
-        prescricao_data['paciente'] = paciente.id
-        prescricao_data['medicamento'] = medicamento.id
-
-        # Serializa e valida os dados da prescrição
-        prescricao_serializer = PrescricaoSerializer(data=prescricao_data)
-        if prescricao_serializer.is_valid():
-            prescricao_serializer.save()
-            return Response(prescricao_serializer.data, status=status.HTTP_201_CREATED)
-        else:
+    def get(self, request):
+        medicamentos = Medicamento.objects.all()
+        serializer = MedicamentoSerializer(medicamentos, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class MedicamentoReadUpdateDeleteView(APIView):
+    def get(self, request, id):
+        medicamento = get_object_or_404(Medicamento, pk=id)
+        serializer = MedicamentoSerializer(medicamento)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def put(self, request, id):
+        medicamento = get_object_or_404(Medicamento, pk=id)
+        serializer = MedicamentoSerializer(medicamento, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, id):
+        medicamento = get_object_or_404(Medicamento, pk=id)
+        medicamento.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+# CRUD - Prescrição
+class PrescricaoCreateWithMedicamentoView(APIView):
+    def post(self, request):
+        medicamento_data = request.data.pop('medicamento')
+        medicamento_serializer = MedicamentoSerializer(data=medicamento_data)
+    
+        if medicamento_serializer.is_valid():
+            medicamento = medicamento_serializer.save()
+            
+            # Vincular a prescrição ao medicamento
+            prescricao_data = request.data
+            prescricao_data['medicamento'] = medicamento.id # Associa o medicamento
+            prescricao_serializer = PrescricaoSerializer(data=prescricao_data)
+            
+            if prescricao_serializer.is_valid():
+                prescricao_serializer.save()
+                return Response(prescricao_serializer.data, status=status.HTTP_201_CREATED)
             return Response(prescricao_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# ViewSet de Medicamentos
-class MedicamentoViewSet(viewsets.ModelViewSet):
-    queryset = Medicamento.objects.all()
-    serializer_class = MedicamentoSerializer
-
-# ViewSet de Usuários
-class UsuarioViewSet(viewsets.ModelViewSet):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
-
-# ViewSet de Registros
-class RegistroViewSet(viewsets.ModelViewSet):
-    queryset = Registro.objects.all()
-    serializer_class = RegistroSerializer
+        return Response(medicamento_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request):
+        prescricoes = Prescricao.objects.all()
+        serializer = PrescricaoSerializer(prescricoes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
