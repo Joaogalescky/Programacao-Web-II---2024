@@ -1,77 +1,11 @@
 {
 	"info": {
-		"_postman_id": "9f0ceb1a-4c31-43d6-8515-20f93a331118",
-		"name": "Scratch Pad",
+		"_postman_id": "9579e138-e564-49ee-bfbb-31da4da73cdf",
+		"name": "3°Prova - Sistema de Biblioteca",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "34348800"
 	},
 	"item": [
-		{
-			"name": "Tag",
-			"item": [
-				{
-					"name": "Criar tags com livro",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"followRedirects": true,
-						"disableUrlEncoding": false,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "User-Agent",
-								"value": "insomnia/8.6.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"titulo\": \"Livro com Tags\",\r\n  \"ano_publicacao\": 2024,\r\n  \"arquivo_pdf\": \"arquivo.pdf\",\r\n  \"descricao\": \"Descrição do livro com tags\",\r\n  \"autor\": 2,\r\n  \"tags\": [\r\n    {\"nome\": \"Ficção\"},\r\n    {\"nome\": \"Aventura\"},\r\n    {\"nome\": \"Mistério\"}\r\n  ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/app/v1/tags/cadastrar_tags_com_livros/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"app",
-								"v1",
-								"tags",
-								"cadastrar_tags_com_livros",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "Livro",
 			"item": [
@@ -125,8 +59,11 @@
 						{
 							"listen": "test",
 							"script": {
+								"exec": [
+									""
+								],
 								"type": "text/javascript",
-								"exec": []
+								"packages": {}
 							}
 						}
 					],
@@ -197,7 +134,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"titulo\": \"Nome do Livro\",\n  \"ano_publicacao\": 2024,\n  \"arquivo_pdf\": \"arquivo.pdf\",\n  \"descricao\": \"Descrição do livro\",\n  \"autor\": 1\n}",
+							"raw": "{\n   \"titulo\": \"Título Atualizado\",\n   \"ano_publicacao\": 2025,\n   \"descricao\": \"Descrição atualizada\",\n   \"autor\": {\n       \"nome\": \"Nome do Autor Atualizado\",\n       \"biografia\": \"Biografia atualizada\"\n   },\n   \"tags\": [\n       {\"tag\": \"Suspense\"},\n       {\"tag\": \"Fantasia\"}\n   ]\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -218,67 +155,6 @@
 								"app",
 								"v1",
 								"livros",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Criar livros com autor",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"followRedirects": true,
-						"disableUrlEncoding": false,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "User-Agent",
-								"value": "insomnia/8.6.1"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"titulo\": \"Livro com Autor\",\n  \"ano_publicacao\": 2024,\n  \"arquivo_pdf\": \"arquivo.pdf\",\n  \"descricao\": \"Este é um livro de exemplo\",\n  \"autor\": {\n    \"nome\": \"Autor Exemplo 2\",\n    \"biografia\": \"Biografia do autor 2\"\n  }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/app/v1/livros/cadastrar_livros_com_autor/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"app",
-								"v1",
-								"livros",
-								"cadastrar_livros_com_autor",
 								""
 							]
 						}
@@ -318,7 +194,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"titulo\": \"Livro 1 - Programação Web II\",\n  \"ano_publicacao\": 2024,\n  \"arquivo_pdf\": \"livrodeprogramacaoweb.pdf\",\n  \"descricao\": \"livro sobre programacao web II\",\n  \"autor\": 1,\n  \"tags\": [\n    {\"nome\": \"Ficção\"},\n    {\"nome\": \"Aventura\"},\n    {\"nome\": \"Mistério\"}\n  ]\n}",
+							"raw": "{\n   \"titulo\": \"Nome Atualizado do Livro\",\n   \"ano_publicacao\": 2025,\n   \"descricao\": \"Descrição atualizada do livro\",\n   \"autor\": {\n       \"nome\": \"Nome Atualizado do Autor\",\n       \"biografia\": \"Biografia atualizada do autor\"\n   },\n   \"tags\": [\n       {\"tag\": \"Suspense\"},\n       {\"tag\": \"Fantasia\"}\n   ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -352,11 +228,8 @@
 						{
 							"listen": "test",
 							"script": {
-								"exec": [
-									""
-								],
 								"type": "text/javascript",
-								"packages": {}
+								"exec": []
 							}
 						}
 					],
@@ -374,7 +247,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/app/v1/livros/4/",
+							"raw": "http://127.0.0.1:8000/app/v1/livros/1/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -387,7 +260,7 @@
 								"app",
 								"v1",
 								"livros",
-								"4",
+								"1",
 								""
 							]
 						}

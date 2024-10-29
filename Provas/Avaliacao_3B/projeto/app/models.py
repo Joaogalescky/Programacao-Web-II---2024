@@ -2,25 +2,22 @@ from django.db import models
 
 # Create your models here.
 class Autor(models.Model):
-    nome = models.CharField(max_length=100, null=False)
+    nome = models.CharField(max_length=200, null=False)
     biografia = models.TextField(blank=True, null=True)
     
     def __str__(self):
         return self.nome
 
-class Tag(models.Model):
-    nome = models.CharField(max_length=100, null=False)
-    
-    def __str__(self):
-        return self.nome
-
 class Livro(models.Model):
-    titulo = models.CharField(max_length=200, null=False)
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=200, unique=True, null=False)
     ano_publicacao = models.IntegerField(null=False)
-    arquivo_pdf = models.CharField(max_length=50, null=False) #FileField - upload_to='livros/'
-    descricao = models.TextField(null=False)
-    autor = models.ForeignKey(Autor, on_delete=models.CASCADE, related_name='livros')
-    tags = models.ManyToManyField(Tag, blank=True, related_name='livros')
+    arquivo_pdf = models.CharField(max_length=300 ,blank=True, null=True)
+    descricao = models.TextField(max_length=300, null=False)
     
     def __str__(self):
         return self.titulo
+    
+class LivroTag(models.Model):
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, related_name='tags') # Chave estrangeira de Livro
+    tag = models.CharField(max_length=100, null=False)
