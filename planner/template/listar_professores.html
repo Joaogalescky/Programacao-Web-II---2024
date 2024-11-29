@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Dados da API</title>
+    <script>
+        // Função que é executada ao carregar a página
+        window.onload = function() {
+            fetch('http://localhost:8000/api/academico/professor/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Chama a função para renderizar os dados na tabela
+                console.log(data)
+                preencherTabela(data);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar dados:', error);
+                alert("Erro ao carregar dados.");
+            });
+        };
+
+        // Função para preencher a tabela com os dados obtidos da API
+        function preencherTabela(dados) {
+            const tabela = document.getElementById("tabela-professores").getElementsByTagName('tbody')[0];
+
+            dados.forEach(item => {
+                let linha = tabela.insertRow(); // Cria uma nova linha
+                console.log(item)
+
+                let celulaNome = linha.insertCell(0);
+                let celulaEmail = linha.insertCell(1);
+
+                celulaNome.innerHTML = item.nome;
+                celulaEmail.innerHTML = item.email;
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Dados da API</h1>
+
+    <!-- Tabela para exibir os dados -->
+    <table id="tabela-professores" border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- O conteúdo da tabela será preenchido dinamicamente -->
+        </tbody>
+    </table>
+</body>
+</html>
