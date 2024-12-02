@@ -1,1 +1,956 @@
-{"_type":"export","__export_format":4,"__export_date":"2024-11-29T23:41:52.076Z","__export_source":"insomnia.desktop.app:v8.6.1","resources":[{"_id":"req_2c41e7a12e1a4fd4a3fa5a15a9b47bc1","parentId":"wrk_scratchpad","modified":1732922903734,"created":1732921861951,"url":"http://127.0.0.1:8000/api/academico/auth/","name":"Login","description":"","method":"POST","body":{"mimeType":"application/json","text":"{ \n\t\"username\": \"herbert\",\n  \"password\": \"admin\" \n}\n"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{"type":"bearer","token":"","prefix":"Token","disabled":true},"metaSortKey":-1732921861951,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"wrk_scratchpad","parentId":null,"modified":1732921668905,"created":1732921668905,"name":"Scratch Pad","description":"","scope":"collection","_type":"workspace"},{"_id":"req_e7abdea5b461409cb75ef493277afabe","parentId":"wrk_scratchpad","modified":1732922831072,"created":1732921793883,"url":"http://127.0.0.1:8000/api/academico/register/","name":"Cadastro de Usuário","description":"","method":"POST","body":{"mimeType":"application/json","text":"{ \"username\": \"herbert\",\n \"email\": \"herbert@admin.com\", \n\"password\": \"admin\" \n}\n"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1732921793883,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_da3a664fb5f14f83ac1b9016adc15dc6","parentId":"fld_695daf9a2a1e44dfa7f2a77598233557","modified":1726268330751,"created":1726267550080,"url":"http://127.0.0.1:8000/api/academico/curso/","name":"Curso - Criar","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"nome\":\"Edificações\",\n\t\"sigla\":\"EDF\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267427279,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_695daf9a2a1e44dfa7f2a77598233557","parentId":"wrk_scratchpad","modified":1726267423239,"created":1726267423239,"name":"Curso","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1726267423239,"_type":"request_group"},{"_id":"req_017e70dfdc6c4dfeb26689b33c93095b","parentId":"fld_695daf9a2a1e44dfa7f2a77598233557","modified":1732922790086,"created":1726267494058,"url":"http://127.0.0.1:8000/api/academico/curso/","name":"Curso - Lista","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{"type":"bearer","prefix":"","disabled":true},"metaSortKey":-1726267392730,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_05cca5b874df4f28b88e4072d93b2d92","parentId":"fld_7f178b39691b4abfa091a575c5c4a28e","modified":1726268412297,"created":1726267669614,"url":"http://127.0.0.1:8000/api/academico/disciplina/","name":"Disciplina - Criar","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"curso\":1,\n\t\"professor\":1,\n\t\"nome\":\"Programação Web II\",\n\t\"codigo\":\"PWII\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267427279,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_7f178b39691b4abfa091a575c5c4a28e","parentId":"wrk_scratchpad","modified":1726267669607,"created":1726267669607,"name":"Disciplina","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1726267382667,"_type":"request_group"},{"_id":"req_699398e7f1e849f4852a70353b5b3248","parentId":"fld_7f178b39691b4abfa091a575c5c4a28e","modified":1726268475797,"created":1726267669609,"url":"http://127.0.0.1:8000/api/academico/disciplina/1","name":"Disciplina - Id","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267427179,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_279eab0536a445db9121677fdd4a9589","parentId":"fld_7f178b39691b4abfa091a575c5c4a28e","modified":1726267840980,"created":1726267669611,"url":"http://127.0.0.1:8000/api/academico/disciplina/","name":"Disciplina - Lista","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267392730,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_296682b13163430c90a2b894326bd15d","parentId":"fld_7f178b39691b4abfa091a575c5c4a28e","modified":1726268496436,"created":1726267669612,"url":"http://127.0.0.1:8000/api/academico/disciplina/2/","name":"Disciplina - Id","description":"","method":"DELETE","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267375505.5,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_44591a4993364b38bb8cb28618adf03e","parentId":"fld_13427bec1a4a4800b792da31a4e708e5","modified":1727480346838,"created":1724452622808,"url":"http://127.0.0.1:8000/api/academico/professor","name":"Professor - Criar","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"nome\": \"Edmar\",\n\t\"email\": \"edmar@ifpr.com.br\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358281,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_13427bec1a4a4800b792da31a4e708e5","parentId":"wrk_scratchpad","modified":1726267372920,"created":1726267342095,"name":"Professor","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1726267342095,"_type":"request_group"},{"_id":"req_bb741f379f6b4758a41b757db6a0a0dc","parentId":"fld_13427bec1a4a4800b792da31a4e708e5","modified":1726267902696,"created":1726267897693,"url":"http://127.0.0.1:8000/api/academico/professor","name":"Professor - Atualizar","description":"","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"nome\": \"Edimaldo\",\n\t\"email\": \"edimaldo@ifpr.com.br\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358231,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_a7c189227c89458bbf1ac933c6287981","parentId":"fld_13427bec1a4a4800b792da31a4e708e5","modified":1726267383021,"created":1724453273843,"url":"http://127.0.0.1:8000/api/academico/professor/1/","name":"Professor - Id","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358181,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_6fcfdcedc1694af0bfb7a137dde48ccc","parentId":"fld_13427bec1a4a4800b792da31a4e708e5","modified":1726267389172,"created":1724452846052,"url":"http://127.0.0.1:8000/api/academico/professor","name":"Professor - Lista","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358106,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_5cc746739d384f69ad2c07bb107e34b5","parentId":"fld_13427bec1a4a4800b792da31a4e708e5","modified":1726267376853,"created":1724455029319,"url":"http://127.0.0.1:8000/api/academico/professor/2/","name":"Professor - Id","description":"","method":"DELETE","body":{},"parameters":[],"headers":[{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358031,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_47d8bf3bdeb74db99d0d732d3eefb026","parentId":"fld_b50b76fc89ee491b90c177c942467aa7","modified":1727480387748,"created":1727479978470,"url":"http://127.0.0.1:8000/api/academico/disciplina/conteudo","name":"Conteudo - Criar","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"id\": 1,\n\t\"curso\": 1,\n\t\"professor\": 3,\n\t\"nome\": \"Hierarquia de memória\",\n\t\"codigo\": \"HM\",\n\t\"conteudos_programaticos\": [ {\"descricao\": \"dia 27\"}]\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"User-Agent","value":"insomnia/8.6.1"}],"authentication":{},"metaSortKey":-1726267358281,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_b50b76fc89ee491b90c177c942467aa7","parentId":"wrk_scratchpad","modified":1727479978467,"created":1727479978467,"name":"Conteudo","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1726267342045,"_type":"request_group"},{"_id":"env_99d30891da4bdcebc63947a8fc17f076de878684","parentId":"wrk_scratchpad","modified":1732923268524,"created":1732921716657,"name":"Base Environment","data":{"base_url":"http://127.0.0.1:8000/api/academico/auth/","auth_token":""},"dataPropertyOrder":{"&":["base_url","auth_token"]},"color":null,"isPrivate":false,"metaSortKey":1732921716657,"_type":"environment"},{"_id":"jar_99d30891da4bdcebc63947a8fc17f076de878684","parentId":"wrk_scratchpad","modified":1732921716683,"created":1732921716683,"name":"Default Jar","cookies":[],"_type":"cookie_jar"},{"_id":"env_ee80ce1bd83340a3b41a0a0025e5ca24","parentId":"env_99d30891da4bdcebc63947a8fc17f076de878684","modified":1732923525366,"created":1732923507463,"name":"Token","data":{"base_url":"http://127.0.0.1:8000/api/academico/auth/","auth_token":""},"dataPropertyOrder":{"&":["base_url","auth_token"]},"color":null,"isPrivate":false,"metaSortKey":1732923507463,"_type":"environment"}]}
+{
+	"info": {
+		"_postman_id": "159736c3-e2f9-41e8-97a5-dc01b26609e5",
+		"name": "Scratch Pad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34348800"
+	},
+	"item": [
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Curso - Criar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Edificações\",\n\t\"sigla\":\"EDF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/curso/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"curso",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Curso - Lista",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/curso/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"curso",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Disciplina",
+			"item": [
+				{
+					"name": "Disciplina - Criar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"curso\":1,\n\t\"professor\":1,\n\t\"nome\":\"Programação Web II\",\n\t\"codigo\":\"PWII\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/disciplina/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"disciplina",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disciplina - Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/disciplina/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"disciplina",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disciplina - Lista",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/disciplina/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"disciplina",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disciplina - Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/disciplina/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"disciplina",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Professor - Criar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Edmar\",\n\t\"email\": \"edmar@ifpr.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/professor",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"professor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Professor - Atualizar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Edimaldo\",\n\t\"email\": \"edimaldo@ifpr.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/professor",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"professor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Professor - Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/professor/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"professor",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Professor - Lista",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/professor",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"professor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Professor - Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/professor/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"professor",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conteudo",
+			"item": [
+				{
+					"name": "Conteudo - Criar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.6.1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"curso\": 1,\n\t\"professor\": 3,\n\t\"nome\": \"Hierarquia de memória\",\n\t\"codigo\": \"HM\",\n\t\"conteudos_programaticos\": [ {\"descricao\": \"dia 27\"}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/academico/disciplina/conteudo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"academico",
+								"disciplina",
+								"conteudo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/8.6.1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"username\": \"herbert\",\n    \"password\": \"admin\" \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/academico/auth/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"academico",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "User-Agent",
+						"value": "insomnia/8.6.1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"herbert\",\n \"email\": \"herbert@admin.com\", \n\"password\": \"admin\" \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/academico/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"academico",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/"
+		},
+		{
+			"key": "auth_token",
+			"value": ""
+		}
+	]
+}
